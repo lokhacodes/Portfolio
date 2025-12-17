@@ -28,15 +28,49 @@
       text-transform:uppercase;
       letter-spacing:1px;
     }
+
     .project-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-    .project-link:hover .placeholder-box {
-        background: #00b3b3;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
+    .project-link:hover .placeholder-box {
+      background: #00b3b3;
+    }
+
+    /* Equal height project cards */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card .w3-white {
+      flex-grow: 1;
+    }
+
+    /* Skills with icons */
+    .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .skill-item {
+      width: 120px;
+      text-align: center;
+    }
+
+    .skill-item i {
+      font-size: 36px;
+      color: #00a6a6;
+    }
+
+    .skill-item p {
+      margin-top: 8px;
+      font-weight: 600;
+    }
   </style>
 </head>
 
@@ -52,12 +86,10 @@
       <i class="fa fa-remove"></i>
     </a>
 
-    <!-- Profile Placeholder -->
     <div class="placeholder-box w3-round">
-      SUMAIYA ISLAM 
+      SUMAIYA ISLAM
     </div>
 
-    
     <p class="w3-text-grey">Web Developer & Tech Enthusiast</p>
   </div>
 
@@ -104,133 +136,120 @@
 
 <!-- Projects -->
 <div class="w3-row-padding">
- <a href="https://github.com/lokhacodes/UComp" 
-   target="_blank" 
-   class="project-link">
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="placeholder-box">UCOMP</div>
-            <div class="w3-container w3-white">
-            <p><b>UComp – Unified Competition Platform</b></p>
-            <p>
-                A full-stack academic web platform for managing workshops and competitions has bkash paymnet gateway and both admin and user interface.
-            </p>
-            </div>
-        </div>
- </a>
- <a href="https://github.com/lokhacodes/Mini-js-projects" 
-   target="_blank" 
-   class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom">
+
+<a href="https://u-comp.vercel.app/" target="_blank" class="project-link">
+  <div class="w3-third w3-container w3-margin-bottom project-card">
+    <div class="placeholder-box">UCOMP</div>
+    <div class="w3-container w3-white">
+      <p><b>UComp – Unified Competition Platform</b></p>
+      <p>
+        Full-stack academic platform with bKash payment gateway,
+        admin & user dashboards.
+      </p>
+    </div>
+  </div>
+</a>
+
+<a href="https://github.com/lokhacodes/Mini-js-projects" target="_blank" class="project-link">
+  <div class="w3-third w3-container w3-margin-bottom project-card">
     <div class="placeholder-box">JS MINI APPS</div>
     <div class="w3-container w3-white">
       <p><b>JavaScript Mini Apps</b></p>
       <p>
-        Counters,basketball-scoreboard , Blackjack Game built using JavaScript, html and css.
+        Counters, basketball scoreboard, Blackjack game using JS, HTML & CSS.
       </p>
     </div>
   </div>
-  </a>
-<a href="https://github.com/lokhacodes/Portfolio" 
-   target="_blank" 
-   class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom">
+</a>
+
+<a href="https://github.com/lokhacodes/Portfolio" target="_blank" class="project-link">
+  <div class="w3-third w3-container w3-margin-bottom project-card">
     <div class="placeholder-box">PORTFOLIO</div>
     <div class="w3-container w3-white">
       <p><b>Personal Portfolio</b></p>
       <p>
-        Responsive personal portfolio website built with HTML and CSS.
+        Responsive personal portfolio website using html and css.
       </p>
     </div>
   </div>
- </a>
+</a>
+
 </div>
 
 <div class="w3-row-padding">
-  <a href="https://github.com/lokhacodes/Mini-js-projects" 
-   target="_blank" 
-   class="project-link"> 
-  <div class="w3-third w3-container w3-margin-bottom">
-    <div class="placeholder-box">Website Clone</div>
+
+<a href="https://github.com/lokhacodes/Mini-js-projects" target="_blank" class="project-link">
+  <div class="w3-third w3-container w3-margin-bottom project-card">
+    <div class="placeholder-box">WEBSITE CLONE</div>
     <div class="w3-container w3-white">
-      <p><b>Tried to implement CSS and Html of an existing project</b></p>
+      <p><b>Website Clone</b></p>
       <p>
-        Basically, the goal is to create a chess game program that enables two players to compete against one another as if they were playing a board game on a real table without the aid of a computer. Additionally, a chat box has been included with the game. Java is the selected programming language
+        HTML & CSS based clone project for layout practice.
       </p>
     </div>
   </div>
-   </a>
- <a href="https://https://github.com/lokhacodes/Chessgame" 
-   target="_blank" 
-   class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom">
-    <div class="placeholder-box">ChessGame</div>
+</a>
+
+<a href="https://github.com/lokhacodes/Chessgame" target="_blank" class="project-link">
+  <div class="w3-third w3-container w3-margin-bottom project-card">
+    <div class="placeholder-box">CHESS GAME</div>
     <div class="w3-container w3-white">
-      <p><b>UI & Layout Designs</b></p>
+      <p><b>Chess Game (Java)</b></p>
       <p>
-        Static and responsive layouts focusing on clean UI principles.
+        Two-player chess game with chat feature built using Java.
       </p>
     </div>
   </div>
-  </a>
-   <a href="https://github.com/lokhacodes/Mini-js-projects" 
-   target="_blank" 
-   class="project-link">
-  <div class="w3-third w3-container">
+</a>
+
+<a href="https://github.com/lokhacodes" target="_blank" class="project-link">
+  <div class="w3-third w3-container project-card">
     <div class="placeholder-box">COMING SOON</div>
     <div class="w3-container w3-white">
       <p><b>Upcoming Project</b></p>
       <p>
-        Reserved space for future advanced projects.
+        Reserved space for future advanced projects. Will be updated accordingly.
       </p>
     </div>
   </div>
- </a>
+</a>
+
 </div>
 
-<!-- CV Section -->
+<!-- CV -->
 <div class="w3-container w3-padding-large" id="cv">
   <h4><b>Curriculum Vitae</b></h4>
-  <p>
-    You can download my CV for a detailed overview of my education, skills, and experience.
-  </p>
-  <p>
-    <a href="#" class="w3-button w3-dark-grey w3-padding-large">
-      <i class="fa fa-download w3-margin-right"></i>
-      Download CV (PDF)
-    </a>
-  </p>
+  <p>You can download my CV for a detailed overview.</p>
+  <a href="#" class="w3-button w3-dark-grey w3-padding-large">
+    <i class="fa fa-download w3-margin-right"></i>Download CV
+  </a>
 </div>
 
 <!-- About -->
 <div class="w3-container w3-padding-large" id="about">
   <h4><b>About Me</b></h4>
   <p>
-    I am a motivated learner and aspiring web developer with hands-on experience
-    in academic and personal projects.
+    Motivated learner and aspiring web developer with hands-on project experience.
   </p>
 
   <hr>
 
-  <h4>Technical Skills</h4>
+  <h4><b>Languages & Tools</b></h4>
 
-  <p>HTML & CSS</p>
-  <div class="w3-grey">
-    <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
-  </div>
-
-  <p>JavaScript</p>
-  <div class="w3-grey">
-    <div class="w3-container w3-dark-grey w3-center" style="width:75%">75%</div>
-  </div>
-
-  <p>Git & GitHub</p>
-  <div class="w3-grey">
-    <div class="w3-container w3-dark-grey w3-center" style="width:80%">80%</div>
-  </div>
-
-  <p>Basic Backend & Databases</p>
-  <div class="w3-grey">
-    <div class="w3-container w3-dark-grey w3-center" style="width:65%">65%</div>
+  <div class="skill-grid">
+    <div class="skill-item"><i class="fa fa-html5"></i><p>HTML</p></div>
+    <div class="skill-item"><i class="fa fa-css3"></i><p>CSS</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>JavaScript</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>TypeScript</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>C</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>C++</p></div>
+    <div class="skill-item"><i class="fa fa-coffee"></i><p>Java</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>Python</p></div>
+    <div class="skill-item"><i class="fa fa-database"></i><p>SQL</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>React</p></div>
+    <div class="skill-item"><i class="fa fa-code"></i><p>Next.js</p></div>
+    <div class="skill-item"><i class="fa fa-cloud"></i><p>Vercel</p></div>
+    <div class="skill-item"><i class="fa fa-github"></i><p>GitHub</p></div>
   </div>
 </div>
 
@@ -240,11 +259,11 @@
 
   <div class="w3-row-padding w3-center w3-padding-24">
     <div class="w3-half w3-dark-grey">
-      <p><i class="fa fa-github w3-xxlarge"></i></p>
+      <i class="fa fa-github w3-xxlarge"></i>
       <p>github.com/lokhacodes</p>
     </div>
     <div class="w3-half w3-teal">
-      <p><i class="fa fa-linkedin w3-xxlarge"></i></p>
+      <i class="fa fa-linkedin w3-xxlarge"></i>
       <p>linkedin.com/in/sumaiya-islam</p>
     </div>
   </div>
