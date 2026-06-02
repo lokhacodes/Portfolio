@@ -1,0 +1,3 @@
+- [x] Inspect how project card titles are rendered
+- [x] Update index.html CSS to style all project-card titles (bold, white, padded)
+- [x] Verify visually (open in browser)
