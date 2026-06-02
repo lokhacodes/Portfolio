@@ -43,9 +43,7 @@
     .project-card {
       display: flex;
       flex-direction: column;
-      height: 100%;
-      min-height: 520px;
-      max-height: 520px;
+      height: 380px; /* hard lock so all visible cards match */
     }
 
     .project-card .project-cover {
@@ -59,16 +57,37 @@
       height: 200px;
       object-fit: cover;
       display: block;
+      border: 2px solid #00cfcf;
     }
+     .project-card .card-tech {
+       display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+       overflow: hidden;
+      }
 
+     .project-card .card-desc {
+       display: -webkit-box;
+       -webkit-line-clamp: 2;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+}
+    /* Make inner content stretch to fill remaining height */
     .project-card .w3-white {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
+      min-height: 0;
     }
 
+    /* Push button row to bottom */
     .project-card .w3-white .w3-row-padding {
       margin-top: auto;
+    }
+
+    /* Prevent paragraphs from affecting layout unpredictably */
+    .project-card .w3-container.w3-white p {
+      margin: 0 0 8px 0;
     }
 
 
@@ -96,7 +115,7 @@
   </style>
 </head>
 
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body class="w3-content" style="max-width:1600px; background:#e1f8f8;">
 
 <!-- Sidebar -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left"
@@ -116,18 +135,18 @@
   </div>
 
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()"
-       class="w3-bar-item w3-button w3-padding w3-text-teal">
-      <i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO
-    </a>
-    <a href="#about" onclick="w3_close()"
-       class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT
-    </a>
-    <a href="#contact" onclick="w3_close()"
-       class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT
-    </a>
+       <a href="#portfolio" onclick="setActive(this);w3_close()"
+   class="w3-bar-item w3-button w3-padding w3-text-teal" id="nav-portfolio">
+  <i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO
+</a>
+<a href="#about" onclick="setActive(this);w3_close()"
+   class="w3-bar-item w3-button w3-padding" id="nav-about">
+  <i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT
+</a>
+<a href="#contact" onclick="setActive(this);w3_close()"
+   class="w3-bar-item w3-button w3-padding" id="nav-contact">
+  <i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT
+</a>
   </div>
 
   <div class="w3-panel w3-large">
@@ -169,8 +188,8 @@
 
     <div class="w3-container w3-white">
       <p><b>UComp – Competition Management Platform</b></p>
-      <p>Next.js, TypeScript, MongoDB, Mongoose, Tailwind CSS, Clerk, bKash</p>
-      <p>Full-stack competition platform with secure auth, event registration, and bKash payment processing.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Next.js, TypeScript, MongoDB, Mongoose, Tailwind CSS, Clerk, bKash</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">Full-stack competition platform with secure auth, event registration, and bKash payment processing.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -178,16 +197,18 @@
     </div>
   </div>
 
-  <!-- 2: Book Management System (keep aqua styling) -->
+  <!-- 2: From the Other Side -->
   <div class="w3-third w3-container w3-margin-bottom project-card" data-project>
     <div class="placeholder-box project-cover">
-      <img src="ima/From the other side.png" alt="Book Management System" />
+      <div class="w3-container" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;border: 2px solid #00cfcf;">
+        <img src="ima/From the other side.png" alt="From the Other Side" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
     </div>
 
     <div class="w3-container w3-white">
-      <p><b>Book Management System</b></p>
-      <p>React, Node.js, Express.js, MongoDB, Tailwind CSS</p>
-      <p>CRUD app with REST API for managing books and a modern table/card UI.</p>
+      <p><b>From the Other Side</b></p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Node.js, Server-Sent Events (SSE), Express.js</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">A platform for sharing ghostly encounters and paranormal sightings, with a live news feed (SSE) and XSS-safe input handling.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -195,15 +216,16 @@
     </div>
   </div>
 
+
   <!-- 3: PrintForge -->
   <div class="w3-third w3-container w3-margin-bottom project-card" data-project>
-    <div class="placeholder-box">
+    <div class="placeholder-box" style="border: 2px solid #00cfcf;">
       <img src="ima/PrintForge.png" alt="PrintForge" style="width:100%;height:100%;object-fit:cover;" />
     </div>
     <div class="w3-container w3-white">
       <p><b>PrintForge (3D Model Browsing Platform)</b></p>
-      <p>Next.js (App Router), TypeScript, Tailwind CSS</p>
-      <p>3D model discovery with category filtering, detailed pages, and data-driven reusable components.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Next.js (App Router), TypeScript, Tailwind CSS</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">3D model discovery with category filtering, detailed pages, and data-driven reusable components.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -216,8 +238,8 @@
     <div class="placeholder-box">ASSEMBLY</div>
     <div class="w3-container w3-white">
       <p><b>Assembly Endgame</b></p>
-      <p>React + TypeScript, Vite, CSS, clsx</p>
-      <p>Accessible word-guessing game with win/loss logic, typed components, and confetti animations.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">React + TypeScript, Vite, CSS, clsx</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">Accessible word-guessing game with win/loss logic, typed components, and confetti animations.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -230,8 +252,8 @@
     <div class="placeholder-box">WHATSAPP</div>
     <div class="w3-container w3-white">
       <p><b>WhatsApp Messaging API</b></p>
-      <p>Node.js, Express.js, WebSocket, WhatsApp Web API</p>
-      <p>REST API for sending messages with QR auth, API key security, rate limiting, and a delivery queue.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Node.js, Express.js, WebSocket, WhatsApp Web API</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">REST API for sending messages with QR auth, API key security, rate limiting, and a delivery queue.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -241,11 +263,11 @@
 
   <!-- 6: Wild Horizons API -->
   <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
-    <div class="placeholder-box">WILD</div>
+    <div class="placeholder-box">HORIZONs</div>
     <div class="w3-container w3-white">
       <p><b>Wild Horizons API</b></p>
-      <p>Node.js (Vanilla), HTTP module, JavaScript (ES Modules)</p>
-      <p>REST-style API built without frameworks using native HTTP, manual routing, and JSON handling.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Node.js (Vanilla), HTTP module, JavaScript (ES Modules)</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">REST-style API built without frameworks using native HTTP, manual routing, and JSON handling.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -256,12 +278,12 @@
   <!-- 7: Travel Journal -->
   <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
     <div class="placeholder-box">
-      <img src="ima/Travel Journal.png" alt="Travel Journal" style="width:100%;height:100%;object-fit:cover;" />
+      <img src="ima/Travel Journal.png" alt="Travel Journal" style="width:100%;height:100%;object-fit:cover; border: 2px solid #00cfcf;" />
     </div>
     <div class="w3-container w3-white">
       <p><b>Travel Journal</b></p>
-      <p>React (Vite + React 19), JavaScript/JSX, Vanilla CSS</p>
-      <p>Reusable Header/Entry components for location cards with images and Google Maps links.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">React (Vite + React 19), JavaScript/JSX, Vanilla CSS</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">Reusable Header/Entry components for location cards with images and Google Maps links.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -273,12 +295,12 @@
   <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
 
     <div class="placeholder-box">
-      <img src="ima/memegenerator.png" alt="Meme Generator" style="width:100%;height:100%;object-fit:cover;" />
+      <img src="ima/memegenerator.png" alt="Meme Generator" style="width:100%;height:100%;object-fit:cover; border: 2px solid #00cfcf;" />
     </div>
     <div class="w3-container w3-white">
       <p><b>Meme Generator</b></p>
-      <p>React (Vite), JavaScript/JSX, Vanilla CSS</p>
-      <p>Interactive meme builder with controlled inputs and instant state-driven rendering.</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;background:#b2f0f0;color:#005f5f;border-radius:9999px;padding:3px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">React (Vite), JavaScript/JSX, Vanilla CSS</p>
+      <p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">Interactive meme builder with controlled inputs and instant state-driven rendering.</p>
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
         <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
@@ -302,12 +324,19 @@
     var showing = btn.getAttribute('data-showing') === '1';
 
     extra.forEach(function (el) {
-      el.style.display = showing ? 'none' : 'block';
+      el.style.display = showing ? 'none' : 'flex';
     });
 
     btn.setAttribute('data-showing', showing ? '0' : '1');
     btn.textContent = showing ? 'Show more' : 'Show less';
   }
+
+  function setActive(el) {
+  document.querySelectorAll('.w3-bar-block .w3-bar-item').forEach(function(link) {
+    link.classList.remove('w3-text-teal');
+  });
+  el.classList.add('w3-text-teal');
+}
 </script>
 
 
@@ -315,13 +344,13 @@
 <div class="w3-container w3-padding-large" id="cv">
   <h4><b>Curriculum Vitae</b></h4>
   <p>You can download my CV for a detailed overview.</p>
-  <a href="#" class="w3-button w3-dark-grey w3-padding-large">
+  <a href="Sumaiya..Sonali_CV.pdf" class="w3-button w3-dark-grey w3-padding-large">
     <i class="fa fa-download w3-margin-right"></i>Download CV
   </a>
 </div>
 
 <!-- About -->
-<div class="w3-container w3-padding-large" id="about">
+<div class="w3-container w3-padding-large" id="about" style="background:#d7ffff;">
   <h4><b>About Me</b></h4>
   <p>
     Motivated learner and aspiring web developer with hands-on project experience.
@@ -349,7 +378,7 @@
 </div>
 
 <!-- Contact -->
-<div class="w3-container w3-padding-large w3-grey" id="contact">
+<div class="w3-container w3-padding-large" id="contact" style="background:#d7ffff;">
   <h4><b>Contact</b></h4>
 
   <div class="w3-row-padding w3-center w3-padding-24">
