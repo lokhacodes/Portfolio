@@ -39,16 +39,38 @@
       background: #00b3b3;
     }
 
-    /* Equal height project cards */
+    /* Fixed-size project cards (consistent grid height) */
     .project-card {
       display: flex;
       flex-direction: column;
       height: 100%;
+      min-height: 520px;
+      max-height: 520px;
+    }
+
+    .project-card .project-cover {
+      height: 200px;
+      overflow: hidden;
+      flex: 0 0 200px;
+    }
+
+    .project-card .project-cover img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
     }
 
     .project-card .w3-white {
-      flex-grow: 1;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
     }
+
+    .project-card .w3-white .w3-row-padding {
+      margin-top: auto;
+    }
+
 
     /* Skills with icons */
     .skill-grid {
@@ -135,86 +157,159 @@
 </header>
 
 <!-- Projects -->
-<div class="w3-row-padding">
+<div class="w3-row-padding" id="projectsGrid">
 
-<a href="https://u-comp.vercel.app/" target="_blank" class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom project-card">
-    <div class="placeholder-box">UCOMP</div>
+  <!-- Card template: 1/3 width on desktop -->
+
+  <!-- 1: UComp -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project>
+    <div class="placeholder-box project-cover">
+      <img src="ima/Ucomp.png" alt="UComp" />
+    </div>
+
     <div class="w3-container w3-white">
-      <p><b>UComp – Unified Competition Platform</b></p>
-      <p>
-        Full-stack academic platform with bKash payment gateway,
-        admin & user dashboards.
-      </p>
+      <p><b>UComp – Competition Management Platform</b></p>
+      <p>Next.js, TypeScript, MongoDB, Mongoose, Tailwind CSS, Clerk, bKash</p>
+      <p>Full-stack competition platform with secure auth, event registration, and bKash payment processing.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
     </div>
   </div>
-</a>
 
-<a href="https://github.com/lokhacodes/Mini-js-projects" target="_blank" class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom project-card">
-    <div class="placeholder-box">JS MINI APPS</div>
+  <!-- 2: Book Management System (keep aqua styling) -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project>
+    <div class="placeholder-box project-cover">
+      <img src="ima/From the other side.png" alt="Book Management System" />
+    </div>
+
     <div class="w3-container w3-white">
-      <p><b>JavaScript Mini Apps</b></p>
-      <p>
-        Counters, basketball scoreboard, Blackjack game using JS, HTML & CSS.
-      </p>
+      <p><b>Book Management System</b></p>
+      <p>React, Node.js, Express.js, MongoDB, Tailwind CSS</p>
+      <p>CRUD app with REST API for managing books and a modern table/card UI.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
     </div>
   </div>
-</a>
 
-<a href="https://github.com/lokhacodes/Portfolio" target="_blank" class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom project-card">
-    <div class="placeholder-box">PORTFOLIO</div>
+  <!-- 3: PrintForge -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project>
+    <div class="placeholder-box">
+      <img src="ima/PrintForge.png" alt="PrintForge" style="width:100%;height:100%;object-fit:cover;" />
+    </div>
     <div class="w3-container w3-white">
-      <p><b>Personal Portfolio</b></p>
-      <p>
-        Responsive personal portfolio website using html and css.
-      </p>
+      <p><b>PrintForge (3D Model Browsing Platform)</b></p>
+      <p>Next.js (App Router), TypeScript, Tailwind CSS</p>
+      <p>3D model discovery with category filtering, detailed pages, and data-driven reusable components.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
     </div>
   </div>
-</a>
+
+  <!-- 4: Assembly Endgame (image not provided) -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
+    <div class="placeholder-box">ASSEMBLY</div>
+    <div class="w3-container w3-white">
+      <p><b>Assembly Endgame</b></p>
+      <p>React + TypeScript, Vite, CSS, clsx</p>
+      <p>Accessible word-guessing game with win/loss logic, typed components, and confetti animations.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: WhatsApp Messaging API (image not provided) -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
+    <div class="placeholder-box">WHATSAPP</div>
+    <div class="w3-container w3-white">
+      <p><b>WhatsApp Messaging API</b></p>
+      <p>Node.js, Express.js, WebSocket, WhatsApp Web API</p>
+      <p>REST API for sending messages with QR auth, API key security, rate limiting, and a delivery queue.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: Wild Horizons API -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
+    <div class="placeholder-box">WILD</div>
+    <div class="w3-container w3-white">
+      <p><b>Wild Horizons API</b></p>
+      <p>Node.js (Vanilla), HTTP module, JavaScript (ES Modules)</p>
+      <p>REST-style API built without frameworks using native HTTP, manual routing, and JSON handling.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7: Travel Journal -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
+    <div class="placeholder-box">
+      <img src="ima/Travel Journal.png" alt="Travel Journal" style="width:100%;height:100%;object-fit:cover;" />
+    </div>
+    <div class="w3-container w3-white">
+      <p><b>Travel Journal</b></p>
+      <p>React (Vite + React 19), JavaScript/JSX, Vanilla CSS</p>
+      <p>Reusable Header/Entry components for location cards with images and Google Maps links.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
+    </div>
+  </div>
+
+<!-- 8: Meme Generator -->
+  <div class="w3-third w3-container w3-margin-bottom project-card" data-project data-project-extra="1" style="display:none;">
+
+    <div class="placeholder-box">
+      <img src="ima/memegenerator.png" alt="Meme Generator" style="width:100%;height:100%;object-fit:cover;" />
+    </div>
+    <div class="w3-container w3-white">
+      <p><b>Meme Generator</b></p>
+      <p>React (Vite), JavaScript/JSX, Vanilla CSS</p>
+      <p>Interactive meme builder with controlled inputs and instant state-driven rendering.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half"><a class="w3-button w3-teal w3-small" href="#" target="_blank">Live Demo</a></div>
+        <div class="w3-half"><a class="w3-button w3-dark-grey w3-small" href="#" target="_blank">GitHub Repo</a></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<div class="w3-row-padding">
-
-<a href="https://github.com/lokhacodes/Mini-js-projects" target="_blank" class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom project-card">
-    <div class="placeholder-box">WEBSITE CLONE</div>
-    <div class="w3-container w3-white">
-      <p><b>Website Clone</b></p>
-      <p>
-        HTML & CSS based clone project for layout practice.
-      </p>
-    </div>
-  </div>
-</a>
-
-<a href="https://github.com/lokhacodes/Chessgame" target="_blank" class="project-link">
-  <div class="w3-third w3-container w3-margin-bottom project-card">
-    <div class="placeholder-box">CHESS GAME</div>
-    <div class="w3-container w3-white">
-      <p><b>Chess Game (Java)</b></p>
-      <p>
-        Two-player chess game with chat feature built using Java.
-      </p>
-    </div>
-  </div>
-</a>
-
-<a href="https://github.com/lokhacodes" target="_blank" class="project-link">
-  <div class="w3-third w3-container project-card">
-    <div class="placeholder-box">COMING SOON</div>
-    <div class="w3-container w3-white">
-      <p><b>Upcoming Project</b></p>
-      <p>
-        Reserved space for future advanced projects. Will be updated accordingly.
-      </p>
-    </div>
-  </div>
-</a>
-
+<!-- Show more button (shows projects 4-8) -->
+<div class="w3-container w3-center w3-margin-bottom">
+  <button id="showMoreBtn" class="w3-button w3-teal" onclick="toggleProjects()">Show more</button>
 </div>
+
+<script>
+  function toggleProjects() {
+    var extra = document.querySelectorAll('[data-project-extra="1"]');
+    // Only works when extra cards are hidden initially.
+
+    var btn = document.getElementById('showMoreBtn');
+    var showing = btn.getAttribute('data-showing') === '1';
+
+    extra.forEach(function (el) {
+      el.style.display = showing ? 'none' : 'block';
+    });
+
+    btn.setAttribute('data-showing', showing ? '0' : '1');
+    btn.textContent = showing ? 'Show more' : 'Show less';
+  }
+</script>
+
 
 <!-- CV -->
 <div class="w3-container w3-padding-large" id="cv">
